@@ -1,7 +1,7 @@
-.weatherBg {
-  background: url("https://www.accuweather.com/images/hero/4/1440x450.jpg");
+.weatherPageWrap {
+  background: url("./Assests/Weather\ Background.webp");
   background-size: cover;
-  height: 50vh;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,25 +10,138 @@
 
 .heading {
   color: white;
-  font-weight: 700;
+  font-weight: 500;
 }
 
-.weatherResultBox {
-  margin: auto;
-  height: 300px;
+.weatherSection {
+  /* display: "flex"; */
+  border-radius: 25px;
+  /* box-shadow: 4px 6px 6px 7px rgb(0 0 0 / 10%); */
+  color: white;
+  /* background: rgba(0, 0, 0, 0.2); */
+  border: 2px solid white;
+  padding: 150px;
+  /* height: 500px; */
+  /* width: 700px; */
+}
+
+.cityMenu {
+  width: 100%;
+  /* box-sizing: border-box; */
+  border: none;
+  /* border-radius: 25px; */
+  padding: 10px;
+  color: #000;
+  /* font-weight: 700; */
+  margin-top: -100px;
+}
+
+.searchIcon {
+  position: relative;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: black;
+  cursor: pointer;
+}
+
+.weatherDataCard {
+  margin-top: 20px;
+  box-shadow: 4px 6px 6px 7px rgba(0, 0, 0, 10%);
+  background-color: rgba(0, 0, 0, 0.6);
+  /* color: white; */
+  border: 2px solid white;
+  border-radius: 25px;
+  height: 220px;
+  width: 500px;
+  /* padding: 20px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cityName {
+  font-size: 20px;
+  /* color: white; */
+  /* margin-top: 10px; */
+}
+
+.currentWeatherIcon {
+  height: 50px;
+  width: 50px;
+}
+.temp {
+  font-size: 25px;
+  margin-right: 65px;
+}
+.right-align {
+  margin-right: 30px;
+  /* position: relative; */
+}
+
+.data-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.data-item {
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-end; */
+  /* margin-right: 20px; */
+  text-align: right;
+}
+
+.weekDataCard {
+  margin-top: 20px;
+  box-shadow: 4px 6px 6px 7px rgba(0, 0, 0, 10%);
+  background-color: rgba(0, 0, 0, 0.3);
+  /* color: white; */
+  border: 2px solid white;
+  border-radius: 25px;
+  height: 220px;
   width: 500px;
 }
 
-.weatherIcon {
+.cardList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dayItem {
+  flex: 1;
+  margin: 0 5px;
+}
+.dayName {
+  padding-left: 10px;
+  text-align: center;
+}
+.weekWeatherIcon {
+  margin-top: 10px;
+  height: 50px;
+  width: 50px;
+}
+/* .humidity,
+.wind,
+.pressure {
+  text-align: right; */
+/* margin-left: "100%"; */
+/* transform: translate(-50%); */
+/* } */
+/* .weatherIcon {
   margin-top: 2rem;
   height: 100px;
   width: 100px;
 }
 
-.weatherCity {
-  font-size: 35px;
-}
+
 
 .weatherTemp {
   font-size: 55px;
-}
+}  */
