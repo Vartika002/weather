@@ -16,18 +16,13 @@ const WeekInfoCardComponnet = ({ data }) => {
   const { coord } = data;
   const latitude = coord?.lat;
   const longitude = coord?.lon;
-  console.log("latitue", latitude);
-  console.log("longitude", longitude);
   let cnt = 7;
-  const apiURL = (
-    latitude,
-    longitude
-  ) => `api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}
-  &lon=${longitude}&cnt=${cnt}&appid=${apiKey}`;
+  const apiURL = (latitude, longitude) =>
+    `https://api.openweathermap.org/data/2.5/forecast/?lat=${latitude}&lon=${longitude}&cnt=${cnt}&appid=${apiKey}`;
 
   const fetchData = (latitude, longitude) => {
     axios
-      .get(apiURL)
+      .get(apiURL(latitude, longitude))
       .then((res) => {
         console.log("response", res);
         setValue(res?.data);
@@ -38,7 +33,9 @@ const WeekInfoCardComponnet = ({ data }) => {
   };
 
   useEffect(() => {
-    fetchData(latitude, longitude);
+    if (latitude && longitude) {
+      fetchData(latitude, longitude);
+    }
   }, [latitude, longitude]);
   return (
     <>
@@ -47,21 +44,27 @@ const WeekInfoCardComponnet = ({ data }) => {
           Weekly Weather Info
         </p>
         <span className="cardList">
-          {daysOfWeek.map((day, index) => (
+          {value?.list?.map((ele, index) => (
             <span key={index} className="dayItem">
               <span className="dayName">
-                {day}
-                {data?.weather && data?.weather?.length > 0 && (
+                {daysOfWeek[index]}
+                {ele?.weather && ele?.weather?.length > 0 && (
                   <div>
                     <img
                       alt="weekly Icon"
                       className="weekWeatherIcon"
-                      src={`https://openweathermap.org/img/wn/${data?.weather[0]?.icon}@2x.png`}
+                      src={`https://openweathermap.org/img/wn/${ele?.weather[0]?.icon}@2x.png`}
                     />
                   </div>
                 )}
               </span>
-              <span className="weeklyTemp">{data?.main?.temp_min}</span>
+              <span className="weeklyDescription">{ele?.weather[0]?.main}</span>
+              <br />
+              <span className="weeklyTemp">
+                {Math.round(ele?.main?.temp_min - 273.5)}°/{" "}
+                {Math.round(ele?.main?.temp_max - 273.5)}°
+              </span>
+              <br />
             </span>
           ))}
         </span>
