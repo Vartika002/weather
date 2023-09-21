@@ -60,6 +60,7 @@ const WeekInfoCardComponnet = ({ data }) => {
               </span>
               <span className="weeklyDescription">{ele?.weather[0]?.main}</span>
               <br />
+              <br />
               <span className="weeklyTemp">
                 {Math.round(ele?.main?.temp_min - 273.5)}°/{" "}
                 {Math.round(ele?.main?.temp_max - 273.5)}°

@@ -6,8 +6,6 @@ import WeekInfoCardComponnet from "../WeekInfoCard";
 const ChooseCityComponent = () => {
   const [data, setData] = useState({});
   const [inputCity, setInputCitty] = useState("");
-  const [latitude, setLatitude] = useState();
-  const [longitude, setLongitude] = useState();
 
   const apiKey = "6b0e492bae1d4405d7dd9606723f248c";
 
