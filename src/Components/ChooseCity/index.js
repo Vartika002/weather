@@ -19,7 +19,6 @@ const ChooseCityComponent = () => {
     axios
       .get(apiURL)
       .then((res) => {
-        console.log("response", res?.data);
         setData(res?.data);
       })
       .catch((err) => {
